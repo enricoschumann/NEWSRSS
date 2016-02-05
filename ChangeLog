@@ -1,0 +1,7 @@
+2016-01-08  Enrico Schumann  <es@enricoschumann.net>
+
+	* DESCRIPTION (Version): Version: 0.9-1
+
+	* R/news_to_rss.R (news_to_rss): print meaningful error message
+	when no NEWS file is found
+
