@@ -8,6 +8,8 @@ news_to_rss  <- function(package, file = NULL,
     if (!is.null(file))
         .NotYetUsed("file")
 
+    .url.re <- "(.*)(https?://\\S+)(.*)"
+
     .HTML_encode <- function(s) {
         s <- gsub("<", "&lt;", s)
         s <- gsub(">", "&gt;", s)
@@ -18,8 +20,16 @@ news_to_rss  <- function(package, file = NULL,
     ns <- news(package = package)
     if (is.null(ns))
         stop("no NEWS file found")
-    
-    ans <- aggregate(trim(ns$Text),
+
+    txt <- trim(ns$Text)
+
+    ii <- grep(.url.re, txt, perl = TRUE)
+    if (length(lines))
+        txt[ii] <- gsub(.url.re, "\\1<a href=\"\\2\">\\2</a>\\3",
+                        txt[ii], perl = TRUE)
+    txt <- .HTML_encode(txt)
+
+    ans <- aggregate(txt,
                      by = list(ns$Version),
                      FUN = function(x)
         paste0(.HTML_encode("<li>"), x, .HTML_encode("</li>"),
@@ -29,7 +39,6 @@ news_to_rss  <- function(package, file = NULL,
                        by = list(ns$Version),
                        FUN = tail, 1)
 
-    ## browser()
     g <- guid(dates[[1]], dates[[2]], ...)
     items  <- paste0("<item>\n",
                      "<title>", ans[[1]],"</title>\n",

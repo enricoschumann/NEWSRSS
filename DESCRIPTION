@@ -9,6 +9,7 @@ Authors@R: person("Enrico", "Schumann",
                   email = "es@enricoschumann.net")
 Description: More about what it does (maybe more than one line)
 Imports: datetimeutils, textutils
-Description:  Utilities to convert a packages NEWS file to an RSS feed.
+Description:  Utilities to convert an R package NEWS file
+              to an RSS feed.
 License: GPL-3
 URL: http://enricoschumann.net/R/packages/NEWSRSS/

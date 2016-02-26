@@ -1,7 +1,13 @@
+2016-02-26  Enrico Schumann  <es@enricoschumann.net>
+
+	* R/news_to_rss.R (news_to_rss): match URLs -- the second
+	group in "(.*)(https?://\\S+)(.*)" -- and replace them
+	with proper HTML links
+
 2016-01-08  Enrico Schumann  <es@enricoschumann.net>
 
 	* DESCRIPTION (Version): Version: 0.9-1
 
-	* R/news_to_rss.R (news_to_rss): print meaningful error message
-	when no NEWS file is found
+	* R/news_to_rss.R (news_to_rss): print meaningful error
+	message when no NEWS file is found
 
