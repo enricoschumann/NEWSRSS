@@ -2,14 +2,15 @@ Package: NEWSRSS
 Type: Package
 Title: Convert NEWS File to RSS Feed
 Version: 0.9-3
-Date: 2017-08-11
+Date: 2021-10-21
+Description: Utilities to convert the NEWS file of an
+   installed package to an RSS feed.
 Maintainer: Enrico Schumann <es@enricoschumann.net>
 Authors@R: person("Enrico", "Schumann",
                   role  = c("aut", "cre"),
-                  email = "es@enricoschumann.net")
-Description: More about what it does (maybe more than one line)
-Imports: datetimeutils, graphics, stats, textutils, utils
-Description:  Utilities to convert an R package NEWS file
-              to an RSS feed.
+                  email = "es@enricoschumann.net",
+                  comment = c(ORCID = "0000-0001-7601-6576"))
+Imports: datetimeutils, stats, textutils, utils
+Suggests: digest
 License: GPL-3
 URL: http://enricoschumann.net/R/packages/NEWSRSS/

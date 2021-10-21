@@ -12,12 +12,16 @@
   Convert package NEWS file to RSS items.
 }
 \usage{
-news_to_rss(package, file,
-            guid = function(version, date, ...) paste0(package, "_", version),
-            link, 
-            guid.isPermaLink = FALSE, \dots)
+news_to_rss(package, file = NULL,
+            guid = function(version, date, ...)
+                            paste0(package, "_", version, "_", date),
+            link,
+            guid.digest = FALSE,
+            guid.isPermaLink = FALSE,
+            \dots)
 
-rss_feed(items, title, description, language, link, atom.href, copyright)
+rss_feed(items, title, description, language,
+         link, atom.href, copyright)
 }
 \arguments{
   \item{package}{
@@ -26,12 +30,15 @@ rss_feed(items, title, description, language, link, atom.href, copyright)
   \item{file}{
     character
 }
-  \item{guid}{
-    function
+  \item{guid}{ a function: the first two arguments are the version and
+    date as specified in the NEWS file
+
 }
   \item{link}{
-    character. The URL of the feed.
-}
+    character. For \code{rss_feed}, the \acronym{URL} of the feed.
+    For \code{news_to_rss}, item-specific links.
+
+  }
   \item{items}{
     character. The items of the feed, in \acronym{XML} markup.
 }
@@ -47,9 +54,12 @@ rss_feed(items, title, description, language, link, atom.href, copyright)
   \item{copyright}{
     character
 }
-  \item{atom.href}{
-    character. See \url{http://www.rssboard.org/rss-profile#namespace-elements-atom-link}
+  \item{atom.href}{character.
+    See \url{http://www.rssboard.org/rss-profile#namespace-elements-atom-link}
 }
+  \item{guid.digest}{
+    logical: use \pkg{digest} package to compute guid?
+  }
   \item{guid.isPermaLink}{
     logical
 }
@@ -59,8 +69,9 @@ rss_feed(items, title, description, language, link, atom.href, copyright)
 }
 \details{
 
-xxx
-  
+  Converts the NEWS file of an R package and converts
+  the NEWS entries into an RSS feed (i.e. XML format).
+
 }
 \value{
   character vector
@@ -72,8 +83,9 @@ xxx
   \code{\link[utils]{news}}
 }
 \examples{
-\dontrun{
+\donttest{
 
+out.file <- tempfile()
 require("NEWSRSS")
 copyright <- "Copyright 2015, Enrico Schumann"
 title <- "NMOF &#8211; Numerical Methods and Optimization in Finance"
@@ -86,9 +98,9 @@ atom.href <- "http://enricoschumann.net/R/packages/NMOF/NMOF_news.xml"
 
 cat(rss_feed(news_to_rss("NMOF", link = link), title, description,
              language, link, atom.href, copyright),
-    file = "~/tmp/NMOF_news.xml")
+    file = out.file)
 
-## pretty print
-system("xmllint -o ~/ESdotnet/R/packages/NMOF/NMOF_news.xml --format ~/tmp/NMOF_news.xml")
+## pretty print with 'xmllint'
+## system("xmllint -o ~/ESdotnet/R/packages/NMOF/NMOF_news.xml --format ~/tmp/NMOF_news.xml")
 
 }}

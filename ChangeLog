@@ -1,21 +1,27 @@
+2021-10-21  Enrico Schumann  <es@enricoschumann.net>
+
+        * R/news_to_rss.R (news_to_rss): do no longer
+        throw an error if no NEWS file is found;
+        instead, issue a warning and return NULL
+        (news_to_rss): new argument 'guid.digest'; if
+        TRUE, add key (hash) of news text to guid
+
 2017-08-11  Enrico Schumann  <es@enricoschumann.net>
 
-	* DESCRIPTION (Version): 0.9-3
-
-	* NAMESPACE: import from graphics, utils, stats
+        * NAMESPACE: import from graphics, utils, stats
 
 2016-02-26  Enrico Schumann  <es@enricoschumann.net>
 
         * DESCRIPTION (Version): 0.9-2
 
-	* R/news_to_rss.R (news_to_rss): match URLs -- the second
-	group in "(.*)(https?://\\S+)(.*)" -- and replace them
-	with proper HTML links
+        * R/news_to_rss.R (news_to_rss): match URLs -- the second
+        group in "(.*)(https?://\\S+)(.*)" -- and replace them
+        with proper HTML links
 
 2016-01-08  Enrico Schumann  <es@enricoschumann.net>
 
-	* DESCRIPTION (Version): Version: 0.9-1
+        * DESCRIPTION (Version): 0.9-1
 
-	* R/news_to_rss.R (news_to_rss): print meaningful error
-	message when no NEWS file is found
+        * R/news_to_rss.R (news_to_rss): print meaningful error
+        message when no NEWS file is found
 

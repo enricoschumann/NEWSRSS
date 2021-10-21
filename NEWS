@@ -1,3 +1,16 @@
+v0.9-3  (2021-10-21; not released yet)
+
+  o news_to_rss: new argument 'guid.digest'. If TRUE, a
+    hash of the news text is added to the guid. Also,
+    the default guid is now composed of package name,
+    version and date (for the old version, set argument
+    guid to
+
+        function(version, date, ...)
+            paste0(package, "_", version)
+
+  o ...
+
 v0.9-2  (2016-02-26)
 
   o news_to_rss: URLs (sequences of nonspace-characters

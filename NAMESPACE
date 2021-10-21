@@ -1,7 +1,9 @@
-exportPattern("^[[:alpha:]]+")
-importFrom("textutils", trim)
-importFrom("datetimeutils", rfc822t)
+export(
+    news_to_rss,
+    rss_feed
+)
 
-importFrom("graphics", "lines")
+importFrom("datetimeutils", rfc822t)
 importFrom("stats", "aggregate")
+importFrom("textutils", trim)
 importFrom("utils", "news", "tail")
