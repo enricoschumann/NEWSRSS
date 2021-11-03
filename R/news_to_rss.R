@@ -97,7 +97,7 @@ rss_feed <- function(items,
                 "link",
                 "atom.href",
                 "copyright")) {
-        head <- gsub(paste0("#", s, "#"), s, head)
+        head <- gsub(paste0("#", s, "#"), get(s, inherits = FALSE), head)
     }
     c(head, items, tail)
 }
