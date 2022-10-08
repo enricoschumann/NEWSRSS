@@ -1,3 +1,7 @@
+2022-10-08  Enrico Schumann  <es@enricoschumann.net>
+
+	* DESCRIPTION (Version): 0.9-4
+
 2021-10-21  Enrico Schumann  <es@enricoschumann.net>
 
         * R/news_to_rss.R (news_to_rss): do no longer
@@ -7,6 +11,8 @@
         TRUE, add key (hash) of news text to guid
 
 2017-08-11  Enrico Schumann  <es@enricoschumann.net>
+
+        * DESCRIPTION (Version): 0.9-3
 
         * NAMESPACE: import from graphics, utils, stats
 

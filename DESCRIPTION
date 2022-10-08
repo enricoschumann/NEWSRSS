@@ -1,8 +1,8 @@
 Package: NEWSRSS
 Type: Package
 Title: Convert NEWS File to RSS Feed
-Version: 0.9-3
-Date: 2021-10-21
+Version: 0.9-4
+Date: 2022-10-08
 Description: Utilities to convert the NEWS file of an
    installed package to an RSS feed.
 Maintainer: Enrico Schumann <es@enricoschumann.net>
